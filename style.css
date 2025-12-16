@@ -1,0 +1,254 @@
+:root {
+  --bg: #f4f3ee;
+  --card-bg: #ffffff;
+  --accent: #ff7a3c;
+  --accent-soft: rgba(255, 122, 60, 0.12);
+  --text-main: #222222;
+  --text-muted: #555555;
+  --border-soft: #e0ded7;
+  --infographic-bg: #f9f6f0;
+  --infographic-border: #e3dacb;
+  --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.06);
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --radius-pill: 999px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top left, #fff6ec 0%, #f4f3ee 45%, #eceae4 100%);
+  color: var(--text-main);
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 16px 12px 32px;
+}
+
+.post {
+  max-width: 760px;
+  width: 100%;
+  background: var(--card-bg);
+  border-radius: 24px;
+  padding: 20px 18px 24px;
+  box-shadow: var(--shadow-soft);
+}
+
+/* Header */
+.post-header {
+  border-bottom: 1px solid var(--border-soft);
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+}
+
+.post-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.post-tag::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+h1 {
+  font-size: 1.4rem;
+  line-height: 1.2;
+  margin: 10px 0 8px;
+}
+
+.post-subtitle {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+/* Sections */
+.post-section {
+  margin-top: 16px;
+}
+
+h2 {
+  font-size: 1.1rem;
+  margin: 0 0 6px;
+}
+
+h3 {
+  font-size: 0.98rem;
+  margin: 8px 0 4px;
+}
+
+p {
+  margin: 4px 0 6px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+ul {
+  margin: 4px 0 6px 18px;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 2px;
+  font-size: 0.9rem;
+}
+
+/* Infographics */
+.infographic {
+  margin-top: 10px;
+  padding: 10px 10px 9px;
+  border-radius: var(--radius-lg);
+  background: var(--infographic-bg);
+  border: 1px solid var(--infographic-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.infographic::before {
+  content: "Infographic";
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: #fff8f1;
+  color: var(--accent);
+  border: 1px solid rgba(255, 122, 60, 0.3);
+}
+
+.infographic-title {
+  margin: 0 0 4px;
+  font-size: 0.94rem;
+}
+
+.infographic-caption {
+  margin: 0 0 6px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.infographic-placeholder {
+  border-radius: var(--radius-md);
+  border: 1px dashed #d3c8b8;
+  background: #fffdf8;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.infographic-placeholder p {
+  margin: 0;
+  font-size: 0.78rem;
+  color: #8b7a61;
+}
+
+/* Infographic notes */
+.infographic-notes {
+  font-size: 0.8rem;
+}
+
+.infographic-notes summary {
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  padding-left: 16px;
+  color: #7a6953;
+}
+
+.infographic-notes summary::before {
+  content: "▶";
+  font-size: 0.7rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: center;
+  transition: transform 0.15s ease;
+}
+
+.infographic-notes[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.infographic-notes ol,
+.infographic-notes ul {
+  margin-left: 16px;
+}
+
+.infographic-notes ol li,
+.infographic-notes ul li {
+  font-size: 0.78rem;
+}
+
+/* Summary section */
+.post-summary {
+  border-top: 1px solid var(--border-soft);
+  margin-top: 18px;
+  padding-top: 12px;
+}
+
+.post-summary ul li {
+  margin-bottom: 4px;
+}
+
+/* Scroll-in animation */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+[data-animate].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile tweaks */
+@media (max-width: 600px) {
+  .page {
+    padding: 12px 8px 20px;
+  }
+
+  .post {
+    padding: 16px 14px 18px;
+    border-radius: 20px;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+  }
+
+  h2 {
+    font-size: 1.02rem;
+  }
+}
+
